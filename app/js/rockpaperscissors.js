@@ -1,6 +1,7 @@
 
+
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    
     return prompt();
 }
 function randomPlay() {
@@ -54,7 +55,7 @@ function getWinner(playerMove, computerMove) {
     else if (playerMove == "scissors" && computerMove == "scissors") {
         console.log ("There's been a tie!");
     }
-    else {console.log ("Please choose either 'rock', 'paper', or 'scissors'."); }
+    else {console.log ("Please choose 'rock', 'paper', or 'scissors'."); }
     
    
    
@@ -64,28 +65,32 @@ function getWinner(playerMove, computerMove) {
 }
 
 function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
+    console.log("Let's play Rock, Paper, Scissors! Start by entering 'rock', 'paper' or 'scissors'!");
     var playerWins = 0;
     var computerWins = 0;
     while (playerWins < 5 && computerWins < 5) {
         var playerMove = getPlayerMove();
         var computerMove = getComputerMove();
-        console.log("Player chose " + playerMove + " while Computer chose " + computerMove);
+        console.log("The computer threw a " + computerMove + " against your " + playerMove);
         var winner = getWinner(playerMove,computerMove);
         if (winner == "player") {
                  playerWins += 1;
                  console.log("You've Won!");
+                 
                   console.log("The score is currently " + playerWins + " to " + computerWins );
             }
         else if (winner == "computer") {
                 computerWins += 1;
-                console.log ("You've lost to the computer");
+                console.log ("You've lost to the computer. Harsh!");
+                
                 console.log("The score is currently " + playerWins + " to " + computerWins );
             }
         else {  console.log("The score is currently " + playerWins + " to " + computerWins );
 
         }
     }
+    if (playerWins == 5) {console.log("Thanks for playing! Congrats!")}
+    else {console.log("Thanks for playing! Better luck next time!")}
 }
 
 playToFive();
